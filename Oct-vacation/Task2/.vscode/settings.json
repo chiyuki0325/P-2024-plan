@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "*.ipp": "c",
+        "bitset": "c",
+        "string_view": "c",
+        "__locale": "c",
+        "string": "c",
+        "numbers": "c"
+    }
+}

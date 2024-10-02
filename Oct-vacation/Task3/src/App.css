@@ -1,0 +1,43 @@
+.calculator-root {
+  width: min(100%, 800px);
+}
+
+.calc-result {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.buttons-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.buttons-row {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.calc-button {
+  width: 40px;
+  height: 40px;
+}
+
+.operators {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+
+@media (max-width: 800px) {
+  .operators {
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
+}

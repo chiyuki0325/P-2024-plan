@@ -106,5 +106,11 @@ export default function calculate(expression) {
   }
 
   // 调用 evaluate 函数计算最终结果并返回
-  return evaluate();
+  const result = evaluate();
+  
+  if (isNaN(result)) {
+    throw new Error('Syntax error: invalid expression')
+  } else {
+    return result;
+  }
 }

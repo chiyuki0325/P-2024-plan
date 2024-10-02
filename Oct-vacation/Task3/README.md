@@ -1,6 +1,5 @@
-# Task 3
+# Task 3: JavaScript 计算器
 
-请补充个人信息后，在此完成报告！
+@Author: 斬風千雪   
+@Email: me@chyk.ink
 
-@Author:  
-@Email:

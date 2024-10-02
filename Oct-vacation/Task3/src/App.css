@@ -11,20 +11,13 @@
   gap: 8px;
 }
 
-.buttons-column {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.buttons-row {
-  display: flex;
-  flex-direction: row;
-  gap: 6px;
+.buttons-grid {
+  display: grid;
+  grid-gap: 6px;
+  grid-template-columns: repeat(3, 96px);
 }
 
 .calc-button {
-  width: 40px;
   height: 40px;
 }
 

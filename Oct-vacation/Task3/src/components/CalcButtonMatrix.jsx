@@ -1,18 +1,37 @@
 import CalcButton from "./CalcButton.jsx"
 
 export default function CalcButtonMatrix({ appendExpression }) {
-    return <div className="buttons-column buttons-matrix">
-        <div className="buttons-row">
-            {['1', '2', '3'].map(char => <CalcButton key={char} char={char} onButtonClick={appendExpression} />)}
-        </div>
-        <div className="buttons-row">
-            {['4', '5', '6'].map(char => <CalcButton key={char} char={char} onButtonClick={appendExpression} />)}
-        </div>
-        <div className="buttons-row">
-            {['7', '8', '9'].map(char => <CalcButton key={char} char={char} onButtonClick={appendExpression} />)}
-        </div>
-        <div className="buttons-row">
-            {['0', '.'].map(char => <CalcButton key={char} char={char} onButtonClick={appendExpression} />)}
-        </div>
+  return (
+    <div className="buttons-grid">
+      {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((char) => (
+        <CalcButton
+          key={char}
+          char={char}
+          style={{
+            gridRow: Math.ceil(char / 3),
+            gridColumn: (char % 3) || 3,
+          }}
+          onButtonClick={appendExpression}
+        />
+      ))}
+
+      <CalcButton
+        char="0"
+        style={{
+          gridRow: 4,
+          gridColumn: 1,
+        }}
+        onButtonClick={appendExpression}
+      />
+      
+      <CalcButton
+        char="."
+        style={{
+          gridRow: 4,
+          gridColumn: 2,
+        }}
+        onButtonClick={appendExpression}
+      />
     </div>
+  )
 }

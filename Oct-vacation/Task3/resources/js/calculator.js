@@ -1,4 +1,4 @@
-function calculate(expression) {
+export default function calculate(expression) {
   // 数栈用于存储操作数
   const numberStack = [];
   // 符号栈用于存储操作符
@@ -10,6 +10,7 @@ function calculate(expression) {
     "-": (a, b) => a - b, // 减法操作
     "*": (a, b) => a * b, // 乘法操作
     "/": (a, b) => a / b, // 除法操作
+    "^": (a, b) => Math.pow(a, b), // 乘方操作
   };
 
   // 定义操作符的优先级，用于确定何时应用操作符
@@ -18,6 +19,7 @@ function calculate(expression) {
     "-": 1,
     "*": 2, // 乘法和除法的优先级为2
     "/": 2,
+    "^": 3, // 乘方运算的优先级为3
   };
 
   // applyOperator 函数用于执行具体的运算操作
@@ -52,14 +54,15 @@ function calculate(expression) {
   }
 
   // 使用正则表达式将输入的表达式分割成操作数和操作符
-  const tokens = expression.match(/(\d+(\.\d+)?|[\+\-\*\/])/g);
+  const tokens = expression.match(/(\d+(\.\d+)?|[\+\-\*\/\^\(\)])/g);
 
   // 遍历分割后的每个 token
-  for (const token of tokens) {
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
     // 如果 token 是数字（包括小数），则将其转换为浮点数并压入数栈
     if (!isNaN(token)) {
       numberStack.push(parseFloat(token));
-    } else if (["+", "-", "*", "/"].includes(token)) {
+    } else if (["+", "-", "*", "/", "^"].includes(token)) {
       // 如果 token 是操作符，则处理符号栈中的操作符
       while (
         operatorStack.length > 0 &&
@@ -77,13 +80,31 @@ function calculate(expression) {
       }
       // 将当前操作符压入符号栈
       operatorStack.push(token);
+    } else if (token == '(') {
+      // 进入左括号
+      let bracketLevel = 0;
+      // 找到匹配的右括号，并且递归 calculate
+      for (let j = i; j < tokens.length; j++) {
+        const token = tokens[j];
+        if (token == '(') {
+          bracketLevel++;
+        } else if (token == ')') {
+          bracketLevel--;
+        }
+        if (bracketLevel == 0) {
+          // 找到匹配的右括号
+          numberStack.push(calculate(tokens.slice(i + 1, j).join('')));
+          i = j;
+          break;
+        }
+      }
+      if (bracketLevel > 0){
+        // 报错
+        throw new Error('Syntax error: brackets unmatched')
+      }
     }
   }
 
   // 调用 evaluate 函数计算最终结果并返回
   return evaluate();
 }
-
-// 使用示例
-const result = calculate("3.5+4*2/5-1");
-console.log(result); // 输出计算结果

@@ -7,29 +7,19 @@ export default function CalcButtonMatrix({ appendExpression }) {
         <CalcButton
           key={char}
           char={char}
-          style={{
-            gridRow: Math.ceil(char / 3),
-            gridColumn: (char % 3) || 3,
-          }}
+          r={Math.ceil(char / 3)}
+          c={(char % 3) || 3}
           onButtonClick={appendExpression}
         />
       ))}
 
       <CalcButton
-        char="0"
-        style={{
-          gridRow: 4,
-          gridColumn: 1,
-        }}
+        char="0" r={4} c={1}
         onButtonClick={appendExpression}
       />
       
       <CalcButton
-        char="."
-        style={{
-          gridRow: 4,
-          gridColumn: 2,
-        }}
+        char="." r={4} c={2}
         onButtonClick={appendExpression}
       />
     </div>

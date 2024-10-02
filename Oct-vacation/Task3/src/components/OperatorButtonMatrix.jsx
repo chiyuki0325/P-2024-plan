@@ -15,17 +15,12 @@ export default function OperatorButtonMatrix({ appendExpression, backspace }) {
         <CalcButton
           key={char}
           char={char}
-          style={{
-            gridRow: Math.ceil(index / 3), 
-            gridColumn: (index % 3 || 3 )
-        }}
+          r={Math.ceil(index / 3)}
+          c={index % 3 || 3}
           onButtonClick={appendExpression}
         />
       ))}
-      <CalcButton key="back" char="🔙" onButtonClick={backspace} style={{
-          gridRow: 3,
-          gridColumn: 2
-      }}/>
+      <CalcButton key="back" char="🔙" onButtonClick={backspace} r={3} c={3} />
     </div>
   )
 }

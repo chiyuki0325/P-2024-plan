@@ -1,6 +1,9 @@
-# Task 4
+# Task 4: 我是一个小灯
 
-请补充个人信息后，在此完成报告！
+@Author: 斬風千雪   
+@Email: me@chyk.ink
 
-@Author:  
-@Email:
+我是一个小灯，点一下我，~~我就会变成老灯了~~
+
+> 参考文献:
+> [元素: click 事件](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/click_event)

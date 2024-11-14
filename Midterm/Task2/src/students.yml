@@ -1,0 +1,33 @@
+students:
+  - name: 余胜军说 Python 编程
+    id: 20241024
+    college: 软件学院
+    gpa: 5.0
+  - name: 宋浩老师官方
+    id: 20241111
+    college: 理学院
+    gpa: 5.0
+  - name: 神秘老登
+    id: 20242222
+    college: 计算机学院
+    gpa: 4.9
+  - name: 斩风千雪
+    id: 20245555
+    college: 软件学院
+    gpa: 3.8
+  - name: 先锋鸡
+    id: 20240000
+    college: 计算机学院
+    gpa: 4.3
+  - name: Alice
+    id: 20240065
+    college: 资土学院
+    gpa: 4.0
+  - name: Bob
+    id: 20240066
+    college: 医工学院
+    gpa: 4.0
+  - name: 绫地零零七二一
+    id: 20240721
+    college: 文法学院
+    gpa: 0.721

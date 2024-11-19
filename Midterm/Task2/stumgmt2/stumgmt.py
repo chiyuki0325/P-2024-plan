@@ -80,4 +80,4 @@ class StudentManagement:
 
     def save_to_disk(self):
         with open(STU_FILE, "w") as f:
-            yaml.dump({"students": self.student_list}, f)
+            yaml.dump({"students": [s.model_dump() for s in self.student_list]}, f, allow_unicode=True)

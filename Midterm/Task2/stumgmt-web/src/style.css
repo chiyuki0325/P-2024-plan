@@ -1,0 +1,24 @@
+:root {
+  font-family: var(--fontFamilyBase);
+
+  color-scheme: light dark;
+  color: var(--colorNeutralForeground1);
+  background-color: var(--colorNeutralBackground2);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  margin: 0;
+}
+
+#app {
+  margin: 1em;
+}
+
+.vue {
+    background: linear-gradient(315deg,#42d392 25%,#647eff);
+    background-clip: text;
+    color: transparent;
+}

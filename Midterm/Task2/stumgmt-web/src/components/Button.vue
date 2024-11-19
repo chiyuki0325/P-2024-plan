@@ -1,0 +1,94 @@
+<script setup>
+const props = defineProps({
+    type: {
+        type: String,
+        default: 'secondary'
+    },
+})
+</script>
+
+<template>
+  <button type="button" class="fluent-button" :class="`fluent-button-${props.type}`">
+    <slot></slot>
+  </button>
+</template>
+
+<style scoped>
+.fluent-button {
+    -moz-box-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    -moz-box-pack: center;
+    justify-content: center;
+    text-decoration-line: none;
+    vertical-align: middle;
+    margin: 0px;
+    overflow: hidden;
+    border: var(--strokeWidthThin) solid;
+    border-color: var(--colorNeutralStroke1);
+    font-family: var(--fontFamilyBase);
+    outline-style: none;
+    padding: 5px var(--spacingHorizontalM);
+    min-width: 96px;
+    border-radius: var(--borderRadiusMedium);
+    font-size: var(--fontSizeBase300);
+    font-weight: var(--fontWeightSemibold);
+    line-height: var(--lineHeightBase300);
+    transition-duration: var(--durationFaster);
+    transition-property: background-color, border-color, color;
+    transition-timing-function: var(--curveEasyEase);
+}
+
+.fluent-button:hover {
+    cursor: pointer;
+}
+
+.fluent-button:hover:active {
+    outline-style: none;
+}
+
+.fluent-button:focus {
+    outline-style: none;
+}
+
+.fluent-button:focus-visible {
+    outline-style: none;
+}
+
+.fluent-button-primary {
+    color: var(--colorNeutralForegroundOnBrand);
+    background-color: var(--colorBrandBackground);
+    border-color: transparent;
+}
+
+.fluent-button-primary:hover {
+    background-color: var(--colorBrandBackgroundHover);
+    border-color: transparent;
+    color: var(--colorNeutralForegroundOnBrand);
+}
+
+.fluent-button-primary:hover:active {
+    background-color: var(--colorBrandBackgroundPressed);
+    border-color: transparent;
+    color: var(--colorNeutralForegroundOnBrand);
+}
+
+.fluent-button-secondary {
+    background-color: var(--colorNeutralBackground1);
+    color: var(--colorNeutralForeground1);
+}
+
+.fluent-button-secondary:hover {
+    background-color: var(--colorNeutralBackground1Hover);
+    border-color: var(--colorNeutralStroke1Hover);
+    color: var(--colorNeutralForeground1Hover);
+}
+
+.fluent-button-secondary:hover:active {
+    background-color: var(--colorNeutralBackground1Pressed);
+    border-color: var(--colorNeutralStroke1Pressed);
+    color: var(--colorNeutralForeground1Pressed);
+    outline-style: none;
+}
+</style>

@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-    type: {
+    variant: {
         type: String,
         default: 'secondary'
     },
@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <button type="button" class="fluent-button" :class="`fluent-button-${props.type}`">
+  <button type="button" class="fluent-button" :class="`fluent-button-${props.variant}`">
     <slot></slot>
   </button>
 </template>

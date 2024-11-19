@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional as Opt
-from enum import Enum, StrEnum
-
+from enum import Enum
 
 class Student(BaseModel):
     id: int
@@ -13,7 +12,7 @@ class Student(BaseModel):
         return f"学号: {self.id}, 姓名: {self.name}, 学院: {self.college}, 绩点: {self.gpa}"
 
 
-class OrderBy(StrEnum):
+class OrderBy(str, Enum):
     id = "id"
     name = "name"
     college = "college"
@@ -36,7 +35,7 @@ class StudentResponse(BaseResponse):
 class StudentQueryResponse(BaseResponse):
     students: list[Student]
 
-class TransactionType(StrEnum):
+class TransactionType(str, Enum):
     add = "add"
     remove = "remove"
     update = "update"

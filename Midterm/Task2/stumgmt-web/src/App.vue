@@ -8,6 +8,7 @@ import Footer from '@cp/Footer.vue'
 
 import CreatePanel from '@cp/CreatePanel.vue'
 import DeletePanel from '@cp/DeletePanel.vue'
+import UpdatePanel from '@cp/UpdatePanel.vue'
 import ReadPanel from '@cp/ReadPanel.vue'
 
 const mode = ref('')
@@ -54,7 +55,8 @@ function setQuery(props) {
       <CRUDButtons @create="mode = 'create'" @read="mode = 'read'" @update="mode = 'update'"
         @delete="mode = 'delete'" />
       <CreatePanel v-if="mode === 'create'" @after-create="updateStudentList++" />
-      <DeletePanel v-if="mode === 'delete'" :student="currentStudent" @after-delete="updateStudentList++" />
+      <DeletePanel v-else-if="mode === 'delete'" :student="currentStudent" @after-delete="updateStudentList++" />
+      <UpdatePanel v-else-if="mode === 'update'" :student="currentStudent" @after-update="updateStudentList++" />
       <ReadPanel v-else-if="mode === 'read'" @set-query="setQuery" />
       <p v-else>
         欢迎使用先锋学生管理系统！请选择一个功能。

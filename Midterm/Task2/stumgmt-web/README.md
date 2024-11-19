@@ -1,5 +1,8 @@
-# Vue 3 + Vite
+# 学生管理系统前端
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+踩到的坑：
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+- Vue 的 `watchEffect` 和 React 的 `useEffect` 用法不同，需要慢慢适应
+- 喜欢的组件库 [Fluent UI](https://react.fluentui.dev) 没有 Vue 版本，只能自己扒 CSS 下来
+- 参照 [AI 的回答](https://chatgpt.com/share/673c7f4c-0dfc-8013-a8fe-bc4f5c750b84) 实现了自封装的 textarea 和 select 组件的双向绑定
+- 前端和后端不在一个主机上，遇到跨域问题，参照[官方文档](https://fastapi.tiangolo.com/tutorial/cors/#use-corsmiddleware)解决

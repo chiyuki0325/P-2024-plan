@@ -29,6 +29,8 @@ college string
 gpa number
 */
 
+const emit = defineEmits(['set-current-student'])
+
 watchEffect(function () {
   console.log(props)
   loading.value = true
@@ -51,6 +53,13 @@ watchEffect(function () {
       loading.value = false
     })
 })
+
+const currentId = ref(null)
+
+function setCurrentStudent(student) {
+  currentId.value = student.id
+  emit('set-current-student', student)
+}
 </script>
 
 <template>
@@ -68,7 +77,8 @@ watchEffect(function () {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="student in students" :key="student.id">
+          <tr v-for="student in students" :key="student.id" @click="setCurrentStudent(student)"
+            :class="{ 'selected': student.id === currentId }">
             <td>{{ student.id }}</td>
             <td>{{ student.name }}</td>
             <td>{{ student.college }}</td>
@@ -88,5 +98,9 @@ td {
 
   vertical-align: middle;
   font-size: var(--fontSizeBase400);
+}
+
+tr.selected {
+  font-weight: var(--fontWeightSemibold);
 }
 </style>

@@ -45,8 +45,7 @@ function setQuery(props) {
   <CRUDButtons @create="mode = 'create'" @read="mode = 'read'" @update="mode = 'update'" @delete="mode = 'delete'" />
   <ReadPanel v-if="mode === 'read'" @set-query="setQuery" />
   <StudentList :query_by="queryProps.queryBy" :value="queryProps.queryValue" :order_by="queryProps.orderBy"
-    :reverse="queryProps.reverse"
-    />
+    :reverse="queryProps.reverse" @set-current-student="currentStudent = $event" />
   <Footer />
 </template>
 

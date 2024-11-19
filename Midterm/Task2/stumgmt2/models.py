@@ -33,7 +33,7 @@ class StudentResponse(BaseResponse):
 
 
 class StudentQueryResponse(BaseResponse):
-    students: list[Student]
+    students: Opt[list[Student]] = []
 
 class TransactionType(str, Enum):
     add = "add"

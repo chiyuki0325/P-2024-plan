@@ -14,7 +14,7 @@ const reverse = ref(true)
 <template>
   <div id="read-panel">
     <Select v-model="queryBy">
-      <option value="">请选择查询条件</option>
+      <option value="">查询条件</option>
       <option value="name">姓名</option>
       <option value="id">学号</option>
       <option value="college">学院</option>
@@ -22,7 +22,7 @@ const reverse = ref(true)
     </Select>
     <TextArea placeholder="查询值" v-model="queryValue" />
     <Select v-model="orderBy">
-      <option value="">请选择排序条件</option>
+      <option value="">排序依据</option>
       <option value="name">姓名</option>
       <option value="id">学号</option>
       <option value="college">学院</option>
@@ -42,9 +42,9 @@ const reverse = ref(true)
   margin: var(--spacingVerticalM) 0;
   display: grid;
   /*上次学的 grid*/
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
   gap: var(--spacingHorizontalM);
-  max-width: 600px;
+  max-width: 414px;
 }
 
 #read-panel * {

@@ -32,7 +32,6 @@ gpa number
 const emit = defineEmits(['set-current-student'])
 
 watchEffect(function () {
-  console.log(props)
   loading.value = true
 
   const params = new URLSearchParams()
@@ -98,9 +97,14 @@ td {
 
   vertical-align: middle;
   font-size: var(--fontSizeBase400);
+
 }
 
 tr.selected {
   font-weight: var(--fontWeightSemibold);
+}
+
+thead {
+  margin-bottom: var(--spacingVerticalL);
 }
 </style>
